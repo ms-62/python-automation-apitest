@@ -1,7 +1,7 @@
 # Python 가상환경 생성 (권장)
-python3 -m venv .venv # Mac
-source .venv/bin/activate  # Linux/Mac
-### 또는 venv\Scripts\activate  # Windows
+python3 -m venv .venv # Mac <br>
+source .venv/bin/activate  # Linux/Mac <br>
+또는 venv\Scripts\activate  # Windows
 
 # 의존성 설치
 pip install -r requirements.txt
