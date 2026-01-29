@@ -1,0 +1,14 @@
+# [Test Runner & Framework]
+pytest>=7.4.0           # 테스트 실행, 결과 판독, Fixture 관리
+
+# [API Core & Validation]
+requests>=2.31.0        # REST API 호출 핵심 라이브러리
+pydantic>=2.0.0         # JSON 데이터 구조 및 타입 검증 (jsonschema보다 최신 방식)
+# jsonschema>=4.19.0    # (선택) 스키마 검증 방식 선호 시 유지
+
+# [Data & Environment]
+python-dotenv>=1.0.0    # API 키, 베이스 URL 등 환경 변수 관리
+Faker>=19.3.0           # 테스트용 가짜 데이터(이름, 이메일 등) 생성
+
+# [Advanced Reporting]
+allure-pytest>=2.13.0   # API 요청/응답 로그가 포함된 고수준 리포트
