@@ -6,8 +6,13 @@ source .venv/bin/activate  # Linux/Mac <br>
 # 의존성 설치
 pip install -r requirements.txt
 
+# newman 설치
+npm install -g newman
+
 ### mac & 외장하드 사용 시 utf-8 에러 발생 시 대응
 dot_clean .
 
-# newman 설치
-npm install -g newman
+
+### Next Step
+- HTTP Method newman test용 추가 작업
+- ci/cd 환경에서 api Test 돌릴 수 있게 yml 작업
