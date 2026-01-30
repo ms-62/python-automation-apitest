@@ -14,7 +14,4 @@ __init__.py
 .vscode
 
 /node_modules
-env.json
-package-lock.json
-package.json
 api-collection.json
