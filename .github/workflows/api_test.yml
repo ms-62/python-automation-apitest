@@ -32,10 +32,10 @@ jobs:
     # Allure 리포트 생성 및 GitHub Pages 등으로 배포 준비
     - name: Run Pytest with Allure
       env:
-          BASE_URL: https://jsonplaceholder.typicode.com
+        BASE_URL: https://jsonplaceholder.typicode.com # 👈 실행하는 '이 단계'에 직접 주입
       run: |
-        python -m pytest --alluredir=allure-results
-        continue-on-error: true
+        python -m pytest --alluredir=allure-results -v -s tests/
+      continue-on-error: true
 
     - name: Allure Report Action
       uses: simple-elf/allure-report-action@master
