@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","301","test_put_post_success","tests","Fri Jan 30 12:43:42 UTC 2026","passed","Fri Jan 30 12:43:42 UTC 2026","","test_simple_api","",""
+"","118","test_get_posts_list","tests","Fri Jan 30 12:43:41 UTC 2026","passed","Fri Jan 30 12:43:41 UTC 2026","","test_simple_api","",""
+"","111","test_get_post_list","tests","Fri Jan 30 12:43:41 UTC 2026","passed","Fri Jan 30 12:43:42 UTC 2026","","test_simple_api","",""
+"","174","test_patch_post_success","tests","Fri Jan 30 12:43:42 UTC 2026","passed","Fri Jan 30 12:43:42 UTC 2026","","test_simple_api","",""
+"이 테스트는 게시글이 정상적으로 생성되는지 확인하는 시나리오입니다.","172","test_create_post_success","tests","Fri Jan 30 12:43:42 UTC 2026","passed","Fri Jan 30 12:43:42 UTC 2026","","test_simple_api","",""
