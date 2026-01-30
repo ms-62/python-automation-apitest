@@ -35,27 +35,26 @@ jobs:
       continue-on-error: true # 테스트가 실패해도 리포트를 생성해야 하므로
 
     # Allure 리포트 생성 및 GitHub Pages 등으로 배포 준비
-    - name: Get Allure history
-      uses: actions/checkout@v4
-      if: always()
+    - name: Run Pytest with Allure
+      run: |
+        python -m pytest --alluredir=allure-results
       continue-on-error: true
-      with:
-        ref: gh-pages
-        path: gh-pages
 
-    - name: Allure Report action from github
+    - name: Allure Report Action
       uses: simple-elf/allure-report-action@master
       if: always()
       with:
         allure_results: allure-results
         allure_history: allure-history
+        keep_reports: 20  # 히스토리를 20개까지만 유지
 
-    - name: Upload Allure Report as Artifact
-      uses: actions/upload-artifact@v4
+    - name: Deploy Allure Report to GitHub Pages
       if: always()
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        name: allure-report
-        path: allure-report
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: allure-history # 위 단계에서 생성된 결과물이 저장된 폴더
+        publish_branch: gh-pages   # 리포트가 호스팅될 브랜치
 
     # 4. Node.js 환경 설정 (Newman용)
     - name: Set up Node.js
