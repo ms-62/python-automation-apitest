@@ -32,7 +32,7 @@
               "// 2. 응답 본문(JSON) 데이터 검증",
               "pm.test(\"제목에 특정 단어가 포함되었는지 확인\", function () {",
               "    var jsonData = pm.response.json(); // 파이썬의 response.json()과 같습니다.",
-              "    pm.expect(jsonData.title).to.include(\"aut\");",
+              "    pm.expect(jsonData.body.title).to.include(\"aut\");",
               "});"
             ],
             "type": "text/javascript",
