@@ -77,3 +77,10 @@ jobs:
       with:
         name: api-test-report
         path: results/
+        
+    - name: Upload Raw Allure Results
+      uses: actions/upload-artifact@v4
+      if: always() # 성공/실패 상관없이 무조건 업로드
+      with:
+        name: allure-raw-data
+        path: allure-results/
