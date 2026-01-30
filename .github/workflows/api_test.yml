@@ -28,14 +28,11 @@ jobs:
         pip install -r requirements.txt
         # .env 파일이 없으므로 환경 변수를 직접 주입하거나 기본값으로 실행
         BASE_URL=https://jsonplaceholder.typicode.com python -m pytest tests/
-    
-    - name: Run Pytest with Allure
-      run: |
-        python -m pytest --alluredir=allure-results
-      continue-on-error: true # 테스트가 실패해도 리포트를 생성해야 하므로
 
     # Allure 리포트 생성 및 GitHub Pages 등으로 배포 준비
     - name: Run Pytest with Allure
+      env:
+          BASE_URL: https://jsonplaceholder.typicode.com
       run: |
         python -m pytest --alluredir=allure-results
       continue-on-error: true
