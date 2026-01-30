@@ -1,0 +1,12 @@
+
+ 전체 수정한 결과 json: {'body': {'id': '1', 'title': 'put test', 'body': 'put test test put', 'userId': '1'}, 'id': 1}
+
+ {'id': '1', 'title': 'put test', 'body': 'put test test put', 'userId': '1'}
+
+ id : 1
+
+ title : put test
+
+ body : put test test put
+
+ userId : 1

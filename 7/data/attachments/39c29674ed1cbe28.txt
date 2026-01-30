@@ -1,0 +1,10 @@
+
+ 등록 글 json: {'body': {'title': 'foo12', 'body': 'bar32', 'userId': 1}, 'id': 101}
+
+ {'title': 'foo12', 'body': 'bar32', 'userId': 1}
+
+ title : foo12
+
+ body : bar32
+
+ userId : 1
