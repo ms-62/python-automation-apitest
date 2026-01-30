@@ -28,6 +28,34 @@ jobs:
         pip install -r requirements.txt
         # .env 파일이 없으므로 환경 변수를 직접 주입하거나 기본값으로 실행
         BASE_URL=https://jsonplaceholder.typicode.com python -m pytest tests/
+    
+    - name: Run Pytest with Allure
+      run: |
+        python -m pytest --alluredir=allure-results
+      continue-on-error: true # 테스트가 실패해도 리포트를 생성해야 하므로
+
+    # Allure 리포트 생성 및 GitHub Pages 등으로 배포 준비
+    - name: Get Allure history
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Allure Report action from github
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+        allure_results: allure-results
+        allure_history: allure-history
+
+    - name: Upload Allure Report as Artifact
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: allure-report
 
     # 4. Node.js 환경 설정 (Newman용)
     - name: Set up Node.js

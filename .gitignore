@@ -15,3 +15,7 @@ __init__.py
 
 /node_modules
 api-collection.json
+
+# Local Allure 관련 데이터 및 리포트 폴더 제외
+allure-results/
+allure-report/
