@@ -15,7 +15,7 @@ dot_clean .
 
 ### Next Step
 - HTTP Method newman test용 추가 작업 - (완료)
-- ci/cd 환경에서 api Test 돌릴 수 있게 yml 작업 
+- ci/cd 환경에서 api Test 돌릴 수 있게 yml 작업 - (완료)
 
 ## Report
 ### pytest - allure 활용 (local)
@@ -33,4 +33,5 @@ yml에도 적용 (gihub actions 생성확인) <br>
 - allure.dynamic.description()
 
 ### local reports 폴더는 .gitingore 추가
+
 
