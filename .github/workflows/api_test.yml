@@ -1,0 +1,55 @@
+name: API Automation Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. 소스 코드 가져오기
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. 파이썬 환경 설정
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    # 3. 파이썬 의존성 설치 및 Pytest 실행
+    - name: Install Python dependencies and Run Pytest
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        # .env 파일이 없으므로 환경 변수를 직접 주입하거나 기본값으로 실행
+        BASE_URL=https://jsonplaceholder.typicode.com python -m pytest tests/
+
+    # 4. Node.js 환경 설정 (Newman용)
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    # 5. Newman 및 리포터 설치
+    - name: Install Newman and Reporter
+      run: |
+        npm install -g newman
+        npm install -g newman-reporter-htmlextra
+
+    # 6. Newman 실행
+    - name: Run Newman Tests
+      run: |
+        newman run apitest.json -e env.json -r cli,htmlextra --reporter-htmlextra-export results/report.html
+
+    # 7. 테스트 결과 리포트 저장 (Artifact)
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v4
+      if: always() # 테스트가 실패해도 리포트는 저장함
+      with:
+        name: api-test-report
+        path: results/
