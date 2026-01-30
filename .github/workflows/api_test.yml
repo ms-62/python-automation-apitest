@@ -78,9 +78,12 @@ jobs:
         name: api-test-report
         path: results/
         
-    - name: Upload Raw Allure Results
+    - name: Upload Allure Report
       uses: actions/upload-artifact@v4
-      if: always() # 성공/실패 상관없이 무조건 업로드
+      if: always()
       with:
-        name: allure-raw-data
-        path: allure-results/
+        name: allure-visualization # 이름이 겹치지 않게 변경해봅니다
+        # 단순히 allure-report가 아니라 경로를 정확히 지정
+        path: |
+          allure-report
+          allure-history
