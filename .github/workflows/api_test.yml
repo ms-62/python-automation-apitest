@@ -35,7 +35,7 @@ jobs:
           BASE_URL: https://jsonplaceholder.typicode.com
       run: |
         python -m pytest --alluredir=allure-results
-      continue-on-error: true
+        continue-on-error: true
 
     - name: Allure Report Action
       uses: simple-elf/allure-report-action@master
